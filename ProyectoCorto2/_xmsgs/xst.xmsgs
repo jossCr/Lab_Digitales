@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="error" file="HDLCompiler" num="696" delta="new" >"C:\Users\Joselin\Documents\GitHub\Lab_Digitales\ProyectoCorto2\Codigo1.v" Line 84: Part-select direction is opposite from prefix index direction
+</msg>
+
+<msg type="error" file="HDLCompiler" num="532" delta="new" >"C:\Users\Joselin\Documents\GitHub\Lab_Digitales\ProyectoCorto2\Codigo1.v" Line 84: Index &lt;<arg fmt="%d" index="1">11</arg>&gt; is out of range [<arg fmt="%d" index="2">7</arg>:<arg fmt="%d" index="3">0</arg>] for signal &lt;<arg fmt="%s" index="4">data_p</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1499" delta="new" >"C:\Users\Joselin\Documents\GitHub\Lab_Digitales\ProyectoCorto2\Codigo1.v" Line 4: Empty module &lt;<arg fmt="%s" index="1">Codigo1</arg>&gt; remains a black box.
+</msg>
+
+</messages>
+
