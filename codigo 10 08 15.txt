@@ -1,0 +1,217 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+///////Se realiza la descripcion de una descripcion de una maquina de estado que pretende saltar a un estado que coincide con las entradas 
+///////Se quiere que se mantenga el estado siempre y cuando las entradas no cambien
+///////Se necesita poder comprobar el estado en el que se encuentr la maquina
+///////Senecesita comprobar la salida de la maquina
+///////Se tienen 4 entradas
+/////// 
+//////////////////////////////////////////////////////////////////////////////////
+module MaquinaEdos(
+
+	input wire clk, reset,
+	input wire [3:0] sensores,
+	output reg [6:0] salidas,
+	//output reg signed [3:0] state_reg /////Se ponen los estados como una salida para de esta forma supervisar el estado en el que se encuentra la maquina
+	output reg signed [3:0] state_reg 											/////the internal signal connected to the port is a signed reg data type
+    );
+	 
+	 ////Parametros de 0 a 15
+	 parameter e0=4'b0000,e1=4'b0001,e2=4'b0010,e3=4'b0011,e4=4'b0100,e5=4'b0101,e6=4'b0110,e7=4'b0111,e8=4'b1000,e9=4'b1001,e10=4'b1010,e11=4'b1011,e12=4'b1100,e13=4'b1101,e14=4'b1110,e15=4'b1111;
+	 parameter s0=4'b0000,s1=4'b0001,s2=4'b0010,s3=4'b0011,s4=4'b1000,s5=4'b0101,s6=4'b0110,s7=4'b0111,s8=4'b1000,s9=4'b1001,s10=4'b1010,s11=4'b1011,s12=4'b1100,s13=4'b1101,s14=4'b1110,s15=4'b1111;
+	 
+	
+	 
+	 ///reg [3:0] state_reg, state_next;
+	 reg [3:0]  state_next;
+	 always @(posedge clk)
+			if(state_reg==e0)
+				salidas<=7'b0000001;
+			else if(state_reg==e1)
+				salidas<=7'b0000001;
+			else if(state_reg==e2)
+				salidas<=7'b0000001;
+			else if(state_reg==e3)
+				salidas<=7'b0000001;
+			else if(state_reg==e4)
+				salidas<=7'b0000001;
+			else if(state_reg==e5)
+				salidas<=7'b0000001;
+			else if(state_reg==e6) 
+				salidas<=7'b0000001;
+			else if(state_reg==e7)
+				salidas<=7'b0000001;
+			else if(state_reg==e8)
+				salidas<=7'b0000001;
+			else if(state_reg==e9)
+				salidas<=7'b0000001;
+			else if(state_reg==e10)
+				salidas<=7'b0000001;
+			else if(state_reg==e11)
+				salidas<=7'b0000001;
+			else if(state_reg==e12)
+				salidas<=7'b0000001;
+			else if(state_reg==e13)
+				salidas<=7'b0000001;
+			else if(state_reg==e14)
+				salidas<=7'b0000001;
+			else if(state_reg==e15)
+				salidas<=7'b0000001;
+			else 
+				salidas<=7'b0000001;	
+		 
+	 
+	 
+	 always @(posedge clk, posedge reset)
+		 if (reset) 
+			state_reg<=s0;
+		 else 
+			state_reg<=state_next;
+			
+	 always @* //next stade logic
+			
+			//state_next = state_reg;
+			//salidas<=7'b0000000;
+			
+			case (state_reg)
+					s1:
+						if (sensores==s1)
+							begin
+							salidas<=7'b1000010;
+							state_next=s1;
+							end
+						else
+							state_next=s0; 							
+							
+					s2:
+						if (sensores==s2)
+							begin
+							salidas<=7'b1000010;
+							state_next=s2;
+							end
+						else
+							state_next=s0; 
+							
+					s3:
+						if (sensores==s3)
+							begin
+							salidas<=7'b1000010;
+							state_next=s3;
+							end
+						else
+							state_next=s0; 
+					s4:
+						if (sensores==s4)
+							begin
+							salidas<=7'b1000010;
+							state_next=s4;
+							end
+						else
+							state_next=s0; 
+					s5:
+						if (sensores==s5)
+							begin
+							salidas<=7'b1000010;
+							state_next=s5;
+							end
+						else
+							state_next=s0; 
+					s6:
+						if (sensores==s6)
+							begin
+							salidas<=7'b1000010;
+							state_next=s6;
+							end
+						else
+							state_next=s0; 
+						
+					s7:
+						if (sensores==s7)
+							begin
+							salidas<=7'b1000010;
+							state_next=s7;
+							end
+						else
+							state_next=s0; 
+							
+					s8:
+						if (sensores==s8)
+							begin
+							salidas<=7'b1000010;
+							state_next=s8;
+							end
+						else
+							state_next=s0; 
+					s9:
+						if (sensores==s9)
+							begin
+							salidas<=7'b1000010;
+							state_next=s9;
+							end
+						else
+							state_next=s0; 
+					s10:
+						if (sensores==s10)
+							begin
+							salidas<=7'b1000010;
+							state_next=s10;
+							end
+						else
+							state_next=s0; 
+							
+					s11:
+						if (sensores==s11)
+							begin
+							salidas<=7'b1000010;
+							state_next=s11;
+							end
+						else
+							state_next=s0; 
+								
+					s12:
+						if (sensores==s12)
+							begin
+							salidas<=7'b1000010;
+							state_next=s12;
+							end
+						else
+							state_next=s0; 
+					s13:
+						if (sensores==s13)
+							begin
+							salidas<=7'b1000010;
+							state_next=s13;
+							end
+						else
+							state_next=s0; 
+					s14:
+						if (sensores==s14)
+							begin
+							salidas<=7'b1000010;
+							state_next=s14;
+							end
+						else
+							state_next=s0; 
+					s15:
+						if (sensores==s15)
+							begin
+							salidas<=7'b1000010;
+							state_next=s15;
+							end
+						else
+							state_next=s0; 
+							|
+					s0:
+						if (sensores==s1)
+							begin
+							salidas<=7'b1000010;
+							state_next=s1;
+							end
+						else
+							state_next=s0; 
+							
+					default state_next=s0;
+					endcase
+	
+endmodule 
+

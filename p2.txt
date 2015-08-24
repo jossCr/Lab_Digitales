@@ -1,0 +1,193 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    18:13:42 07/31/2015 
+// Design Name: 
+// Module Name:    MaquinaEdos 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
+module MaquinaEdos(
+	input wire clk, reset, 
+	input wire [3:0] sensores,
+	output reg [6:0] salidas
+    );
+	 
+	 parameter e0=4'b0000,e1=4'b0001,e2=4'b0010,e3=4'b0011,e4=4'b0100,e5=4'b0101,e6=4'b0110,e7=4'b0111,e8=4'b1000,e9=4'b1001,e10=4'b1010,e11=4'b1011,e12=4'b1100,e13=4'b1101,e14=4'b1110,e15=4'b1111;
+	 parameter s0=4'b0000,s1=4'b0001,s2=4'b0010,s3=4'b0011,s4=4'b1000,s5=4'b0101,s6=4'b0110,s7=4'b0111,s8=4'b1000,s9=4'b1001,s10=4'b1010,s11=4'b1011,s12=4'b1100,s13=4'b1101,s14=4'b1110,s15=4'b1111;
+	 
+	 
+	 
+	 reg [3:0] state_reg;
+	 reg [3:0] state_nexta;
+	 
+	 
+	 always @(posedge clk, posedge reset)
+	 if (reset) 
+		state_reg<=s0;
+	else 
+		state_reg<=state_nexta;
+		
+	always@*
+	begin 
+	//state_nexta = state_reg; 
+	//salidas<=7'b0000000;
+	
+	case (state_reg)
+	
+	s1:
+		if (sensores==e1)
+		salidas<=7'b1000010;
+		else
+		state_nexta<=s0; 
+		
+			
+			
+	s2:    
+		if (sensores==e2)
+		salidas<=7'b1011110; 
+		else
+		state_nexta<=s0;
+			
+	s3:
+		if (sensores==e3)
+		salidas<=7'b1011110;
+		else
+		state_nexta<=s0;
+	s4:
+		if (sensores==e4)
+		salidas<=7'b1100000;
+		else
+		state_nexta<=s0;
+	s5:
+		if (sensores==e5)
+		salidas<=7'b1100010;
+		else
+		state_nexta<=s0;
+	s6:
+		if (sensores==e6)
+		salidas<=7'b1111110;
+		else
+		state_nexta<=s0;
+		
+	s7:
+		if (sensores==e7)
+		salidas<=7'b1111110;
+		else
+		state_nexta<=s0;
+			
+	s8:
+		if (sensores==e8)
+		salidas<=7'b1010000;
+		else
+		state_nexta<=s0;
+	s9:
+		if (sensores==e9)
+		salidas<=7'b1010010;
+		else
+		state_nexta<=s0;
+	s10:
+		if (sensores==e10)
+		salidas<=7'b1111110;
+		else
+		state_nexta<=s0;
+			
+	s11:
+		if (sensores==e11)
+		salidas<=7'b1111110;
+		else
+		state_nexta<=s0;
+			   
+	s12:
+		if (sensores==e12)
+		salidas<=7'b1110010;
+		else
+		state_nexta<=s0;
+	s13:
+		if (sensores==e13)
+		salidas<=7'b1110010;
+		else
+		state_nexta<=s0;
+	s14:
+		if (sensores==e14)
+		salidas<=7'b1111110;
+		else
+		state_nexta<=s0;
+	s15:
+		if (sensores==e15)
+		salidas<=7'b1111110;
+		else
+		state_nexta<=s0;
+	s0:
+		if (sensores==e0)
+		salidas<=7'b0000001;
+	
+		else
+		
+		
+			case (sensores)
+		e1:
+			
+			state_nexta<=s1;
+			
+		e2: 
+		
+			state_nexta<=s2;
+			
+		e3: 
+			state_nexta<=s3;
+		e4: 
+		
+			state_nexta<=s4;
+		e5: 
+		
+			state_nexta<=s5;
+		e6: 
+		
+			state_nexta<=s6;
+		e7: 
+		
+			state_nexta<=s7;
+		e8: 
+		
+			state_nexta<=s8;
+		e9: 
+		
+			state_nexta<=s9;
+		e10: 
+		
+			state_nexta<=s10;
+		e11: 
+		
+			state_nexta<=s11;
+			
+		e12: 
+		
+			state_nexta<=s12;
+		e13: 
+		
+			state_nexta<=s13;
+		e14: 
+		
+			state_nexta<=s14;
+		e15: 
+		
+			state_nexta<=s15;
+		default state_nexta<=s0;
+			endcase
+	default state_nexta<=s0;
+	endcase
+	
+end	
+endmodule 
