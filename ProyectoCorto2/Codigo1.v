@@ -81,7 +81,7 @@ module Codigo1(clk, ps2_data, ps2_clk, ps2_data_out, pulso_done
 				end
 				
 			dos: begin
-				data_p [7:0] <= {data_in, data_p[7:11]};
+				data_p [7:0] <= {data_in, data_p[7:1]};
 				contador <=  contador +1;
 				pulso_done <= 1'b0;
 				estado <= uno;

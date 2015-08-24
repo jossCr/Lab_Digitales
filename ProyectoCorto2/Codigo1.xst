@@ -1,9 +1,6 @@
-set -tmpdir "xst/projnav.tmp"
-set -xsthdpdir "xst"
-run
--ifn Codigo1.prj
--ofn Codigo1
--ofmt NGC
+set -tmpdir "C:/Users/Joselin/Documents/GitHub/Lab_Digitales/ProyectoCorto2/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/Joselin/Documents/GitHub/Lab_Digitales/ProyectoCorto2/xst"
+run -compileonly yes
 -p xc6slx16-3-csg324
 -top Codigo1
 -opt_mode Speed
@@ -50,3 +47,4 @@ run
 -iob Auto
 -equivalent_register_removal YES
 -slice_utilization_ratio_maxmargin 5
+-ifn Codigo1.prj
