@@ -1,0 +1,130 @@
+`timescale 1ms / 1ps
+
+////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:
+//
+// Create Date:   20:36:36 08/24/2015
+// Design Name:   Codigo1
+// Module Name:   C:/Users/Joselin/Documents/GitHub/Lab_Digitales/Concenta2/TestBenchModulo1.v
+// Project Name:  Concenta2
+// Target Device:  
+// Tool versions:  
+// Description: 
+//
+// Verilog Test Fixture created by ISE for module: Codigo1
+//
+// Dependencies:
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+////////////////////////////////////////////////////////////////////////////////
+
+module TestBenchModulo1;
+
+	// Inputs
+	reg clk;
+	reg ps2_data;
+	reg ps2_clk;
+
+	// Outputs
+	wire [7:0] ps2_data_out;
+	wire pulso_done;
+
+	// Instantiate the Unit Under Test (UUT)
+	Codigo1 uut (
+		.clk(clk), 
+		.ps2_data(ps2_data), 
+		.ps2_clk(ps2_clk), 
+		.ps2_data_out(ps2_data_out), 
+		.pulso_done(pulso_done)
+	);
+
+	initial begin
+		// Initialize Inputs
+		clk = 0;
+		ps2_data = 0;
+		ps2_clk = 0;
+
+		// Wait 100 ns for global reset to finish
+		#25;
+		ps2_data=1'b1; //start bit
+		#100;
+		ps2_data=1'b0; //1C
+		#100;
+		ps2_data=1'b0;//1C
+		#100;
+		ps2_data=1'b0; //1C
+		#100;
+		ps2_data=1'b1;// 1C =a
+		#100;
+		ps2_data=1'b1;//
+		#100;
+		ps2_data=1'b1;//
+		#100;
+		ps2_data=1'b0;
+		#100;
+		ps2_data=1'b0;
+		#100;
+		ps2_data=1'b1; //paridad
+		#100;
+		ps2_data=1'b1; //stop bit
+		#100;
+		
+		//Segunda tecla
+		ps2_data=1'b1; //start bit
+		#100;
+		ps2_data=1'b0; //1C
+		#100;
+		ps2_data=1'b0;//1C
+		#100;
+		ps2_data=1'b1; //1C
+		#100;
+		ps2_data=1'b0;// 1C =a
+		#100;
+		ps2_data=1'b1;//
+		#100;
+		ps2_data=1'b0;//
+		#100;
+		ps2_data=1'b1;
+		#100;
+		ps2_data=1'b1;
+		#100;
+		ps2_data=1'b1; //paridad
+		#100;
+		ps2_data=1'b1; //stop bit
+		#100;
+		
+		
+		//Envio de F0
+		ps2_data=1'b1; //start bit
+		#100;
+		ps2_data=1'b1; //1C
+		#100;
+		ps2_data=1'b1;//1C
+		#100;
+		ps2_data=1'b1; //1C
+		#100;
+		ps2_data=1'b1;// 1C =a
+		#100;
+		ps2_data=1'b0;//
+		#100;
+		ps2_data=1'b0;//
+		#100;
+		ps2_data=1'b0;
+		#100;
+		ps2_data=1'b0;
+		#100;
+		ps2_data=1'b1; //paridad
+		#100;
+		ps2_data=1'b1; //stop bit
+		#100;
+        
+		// Add stimulus here
+
+	end
+      initial forever#50 ps2_clk =~ps2_clk;
+		initial forever#1 clk=~clk;
+endmodule
